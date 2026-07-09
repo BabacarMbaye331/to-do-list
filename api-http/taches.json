@@ -1,0 +1,66 @@
+[
+    {
+        "id" : 1,
+        "titre" : "Apprendre React",
+        "description" : "Etudier les composants et les props",
+        "categories" : "Formation",
+        "priorite" : "Haute",
+        "dateCreation" : "2026-07-08",
+        "dateLimite" : "2026-08-08",
+        "status"  : false
+    },
+    
+    {
+        "id" : 2,
+        "titre" : "Reviser les bases de donnees",
+        "description" : "Revoir les requetes SQL pour consolider mon backend",
+        "categories" : "Etudes",
+        "priorite" : "moyenne",
+        "dateCreation" : "2026-07-08",
+        "dateLimite" : "2026-07-08",
+        "status"  : true
+    },
+    
+    {
+        "id" : 3,
+        "titre" : "Rechercher une offre de Stage",
+        "description" : "Pratiquer mes connaissances et ameliorer soft Skils",
+        "categories" : "Travail",
+        "priorite" : "moyenne",
+        "dateCreation" : "2026-02-08",
+        "dateLimite" : "2026-02-11",
+        "status"  : false
+    },
+    
+    {
+        "id" : 4,
+        "titre" : "Faire la Lessive",
+        "description" : "Profiter du week-end pour nettoyer mes vetements",
+        "categories" : "Maison",
+        "priorite" : "faible",
+        "dateCreation" : "2026-07-18",
+        "dateLimite" : "2026-07-18",
+        "status"  : true
+    },
+    {
+        "id" : 5,
+        "titre" : "Realiser le projet TO DO LIST",
+        "description" : "Histoire de consolider mes connaissances javascript",
+        "categories" : "Formation",
+        "priorite" : "Haute",
+        "dateCreation" : "2026-07-08",
+        "dateLimite" : "2026-07-13",
+        "status"  : false
+    },
+    {
+        "id" : 6,
+        "titre" : "Acheter des Fruits",
+        "description" : "C'est conseiller de manger au moi trois fruis par jour",
+        "categories" : "Courses",
+        "priorite" : "moyenne",
+        "dateCreation" : "2026-07-11",
+        "dateLimite" : "2026-07-12",
+        "status"  : true
+    },
+    
+]
