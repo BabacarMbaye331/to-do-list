@@ -4,21 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionnaire de taches</title>
+    <!-- lien de link du css -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <!-- lien du script du js -->
+    <script type="module" src="../js/app.js" defer></script>
+    <!-- lien fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <!-- **********header en tete de la page************** -->
-    <header>
+    <div class="container">
 
-    </header>
+        <!-- **********header en tete de la page************** -->
+        <header>
+            <p><a id="logo">Gestionnaire de taches</a></p>
+            <div class="dashboard">
+                <h3>Dashboard</h3>
+                <div class="donnees_dashboard">
+                    <p><strong>Totale Taches : </strong> <span class="totaleTachhes">12</span></p>
+                    <p><strong> Taches Terminer : </strong> <span class="tacheTerminer">8</span></p>
+                    <p><strong> Taches en cours : </strong> <span class="tacheEnCours">4</span></p>
+                    <p><strong> Haute priorite : </strong> <span class="hautePriorite">2</span></p>
+                </div>
+            </div>
+        </header>
 
-    <!-- ***********main partie principale*********** -->
-    <main>
+        <!-- ***********main partie principale*********** -->
+        <main>
+            
+            <section class="section_principle">
 
-    </main>
+                <!-- secttion de recherche -->
+                <section id="section__search">
+                    <input type="text" id="search" placeholder="Rechercher une tache ...">
+                    <button id="btn_ajoutTache">Ajouter une tache</button>
+                </section>
 
-    <!-- ***********************footer pied de page************* -->
-    <footer>
+                <!-- section filtrage -->
+                <section class="section__filtrage">
+                    <h2>Filtrer</h2>
+                    <div class="btns__filtre">
+                        <button class="btn " id="filtre__tous">Toutes</button>
+                        <button class="btn " id="filtre__enCours">En cours</button>
+                        <button class="btn " id="filtre__terminer">Terminer</button>
+                        <button class="btn " id="filtre__hautePrioris">Haute priorites</button>
+                        <button class="btn " id="filtre__formation">Formation</button>
+                    </div>  
+                </section>
 
-    </footer>
+                <!-- listes des taches -->
+                <section id="section__listeTaches">
+                    <h2>Listes des taches</h2>
+                    <p class="desc_listes_taches">
+                        Organiser vos taches en toute simplicite et garder le controle sur vos objectifs. Grace a une interface intuitive et facile a utiliser, 
+                        planifier vos activites, definisser vos proprietes et suivez votre progession en temps reel. Que ce soit pour vos projets personnels,
+                         vos etudes ou vore travail. Notre application vous aide a rester organiser, productif et concentrer sur ce qui compte le plus.
+                    </p>
+                    <section class="blocks">
+
+                        <article class="card">
+                            <p>******************************************</p>
+                            <h3><span class="icon"><i class="fa-solid fa-meteor"></i></span> titre</h3>
+                            <p>description</p>
+                            <p>categories</p>
+                            <p>priorite</p>
+                            <p>Status</p>
+                            <div class="actions">
+                                <button class="btn_action" id="btn__modifier">Modifier</button>
+                                <button class="btn_action" id="btn__supprimer">Supprimer</button>
+                                <button class="btn_action" id="btn__terminer">Terminer</button>
+                            </div>
+                            <p>******************************************</p>
+                        </article>
+
+                        <article class="card">
+                            <p>******************************************</p>
+                            <h3>titre</h3>
+                            <p>description</p>
+                            <p>categories</p>
+                            <p>priorite</p>
+                            <p>Status</p>
+                            <div class="actions">
+                                <button class="btn_action id="btn__modifier">Modifier</button>
+                                <button class="btn_action id="btn__supprimer">Supprimer</button>
+                                <button class="btn_action id="btn__terminer">Terminer</button>
+                            </div>
+                            <p>******************************************</p>
+                        </article>
+
+                        <article class="card">
+                            <p>******************************************</p>
+                            <h3>titre</h3>
+                            <p>description</p>
+                            <p>categories</p>
+                            <p>priorite</p>
+                            <p>Status</p>
+                            <div class="actions">
+                                <button id="btn__modifier">Modifier</button>
+                                <button id="btn__supprimer">Supprimer</button>
+                                <button id="btn__terminer">Terminer</button>
+                            </div>
+                            <p>******************************************</p>
+                        </article>
+
+                        <article class="card">
+                            <p>******************************************</p>
+                            <h3>titre</h3>
+                            <p>description</p>
+                            <p>categories</p>
+                            <p>priorite</p>
+                            <p>Status</p>
+                            <div class="actions">
+                                <button id="btn__modifier">Modifier</button>
+                                <button id="btn__supprimer">Supprimer</button>
+                                <button id="btn__terminer">Terminer</button>
+                            </div>
+                            <p>******************************************</p>
+                        </article>
+                    </section>
+                </section>
+            </section>
+        </main>
+
+        <!-- ***********************footer pied de page************* -->
+        <footer>
+                <div class="section__footer">
+                    <p class="desc_footer_primary">Merci d ' avoir visiter notre application.
+                    Notre mossion est de vous aider a mieux organiser votre quotidien grace a une
+                    suggestion simple, rapide et efficace de vos taches.</p>
+                    <p class="desc_footer_secondqry">@2026 Task Manager - Tous droits reserves.</p>
+                </div>
+            
+        </footer>
+
+    </div>
+
 </body>
 </html>
