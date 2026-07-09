@@ -1,0 +1,182 @@
+:root {
+    --primary-color : #14532D;
+    --seconde-color : #fff;
+    --text-color : #1f1f1f;
+    --border-radius : 6px;
+    --font-size : 1.2rem;
+    --font-size_btn : 1.1rem;
+    --margin : 2rem;
+    --box-shadow : rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+}
+header, main, footer {
+    width: 100%;
+}
+
+.container {
+    width: 85%;
+    margin:  10px auto;
+
+}
+
+/* **********header en tete de la page**************  */
+
+header #logo {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+/* section dashboard */
+.dashboard {
+    margin: var(--margin) 0;
+    box-shadow: var(--box-shadow);
+    padding: 1rem .5rem;
+}
+.dashboard h2 {
+    margin-bottom: .5rem;
+}
+
+.donnees_dashboard {
+    line-height: 2;
+}
+.donnees_dashboard p strong {
+    opacity: .7;
+}
+
+/* **********main section principale**************  */
+.section_principle {
+    width: 100%;
+}
+/* section de recherche et du bouton d'ajout de taches */
+#section__search {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+#search {
+    padding: 10px;
+    font-size: var(--font-size_btn);
+    outline: none;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    transition: all .3s ease-in-out;
+}
+#search:focus {
+    border: 3px solid var(--primary-color);
+}
+#btn_ajoutTache {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size_btn);
+    color: var(--seconde-color);
+    background-color: var(--primary-color);
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    transition: all .2s ease-in;
+}
+#btn_ajoutTache:hover {
+    opacity: .8;
+}
+/* section filtrage */
+.section__filtrage h2 {
+    margin-bottom: .5rem;
+}
+.btns__filtre {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+}
+.btn {
+    padding: 6px;
+    background-color: var(--seconde-color);
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+}
+#filtre__tous {
+    background-color: var(--primary-color);
+    color: var(--seconde-color);
+    font-size: 1rem;
+}
+
+/* listes des taches */
+#section__listeTaches .desc_listes_taches {
+    margin: .3rem 0 2rem 0;
+    font-size: var(--font-size);
+    opacity: .8;
+    line-height: 1.5;
+}
+h2 {
+    font-size: 2rem;
+}
+.blocks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+.card {
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    line-height: 2;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    border-radius: var(--border-radius);
+}
+.card:hover {
+    transform: scale(1.02);
+    background-color: var(--primary-color);
+    color: var(--seconde-color);
+}
+.card:hover .icon {
+    color: var(--seconde-color);
+}
+.card .icon {
+    color: var(--primary-color);
+}
+.actions {
+    display: flex;
+    justify-content: start;
+    gap: 1rem;
+    margin-top: .5rem;
+}
+.btn_action {
+    padding: 3px 8px;
+    /* background-color: var(--seconde-color); */
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+    font-size: .9rem;
+}
+#btn__supprimer {
+    color: red;
+}
+#btn__terminer {
+    color: var(--primary-color);
+}
+.section_principle .section__filtrage {
+    margin: var(--margin) 0;
+}
+/* **********footer pied de page**************  */
+.section__footer {
+    margin-top: var(--margin);
+    background-color: var(--primary-color);
+    color: var(--seconde-color);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.desc_footer_primary {
+    line-height: 1.3;
+    font-size: 1.05rem;
+}
+.desc_footer_secondqry {
+    text-align: end;
+}
