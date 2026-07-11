@@ -13,11 +13,23 @@
 }
 
 // ************************Dashboard
-export function calcule_Dasboard(listes) {
+export function calcule_Dasboard(listes_taches) {
     return {
-        totale: listes.length,
-        terminer: listes.filter((t) => t.status).length,
-        enCours: listes.filter((v) => !v.status).length,
-        formation: listes.filter((r) => r.categories === "Formation").length
+        totale: listes_taches.length,
+        terminer: listes_taches.filter((t) => t.status).length,
+        enCours: listes_taches.filter((v) => !v.status).length,
+        formation: listes_taches.filter((r) => r.categories === "Formation").length
     };
+} 
+
+// ****************************changement de couleur selon le bouton de filtre
+// fonction stylisisation des boutons de filtres
+const autres = [];
+
+export function changeColor(point, [...autres]) {
+    point.classList.toggle('changeColor');
+
+    autres.forEach((uniq) =>{
+        uniq.classList.remove('changeColor')
+    })
 }
