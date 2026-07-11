@@ -1,6 +1,5 @@
 //  importation de fonction listesTaches qui gere la recuperation des taches
-import { listesTaches, calcule_Dasboard } from "./utile.js";
-const taches = await listesTaches().then( r => { return r }); 
+import { calcule_Dasboard, changeColor } from "./utile.js";
 
 
 /* ************************Dashboard */
@@ -9,14 +8,14 @@ const taches = await listesTaches().then( r => { return r });
 const donnees_dashboard = document.querySelector(".donnees_dashboard");
 
 // appelation de la fonction dashboard depuis utile.js
-export function Dashboard() {
+export function Dashboard(listes) {
 
     const {
         totale: totale_Taches,
         terminer: tache_Terminer,
         enCours: tache_enCours,
         formation: tache_enFormation
-    } = calcule_Dasboard(taches);
+    } = calcule_Dasboard(listes);
     
     donnees_dashboard.innerHTML =`
         <p><strong>Totale Taches : </strong> <span class="totaleTachhes">${totale_Taches}</span></p>
@@ -26,22 +25,22 @@ export function Dashboard() {
     `
 }
 
+
 // *********************************blocks
 
 // recuperation de la section blocks
 const blocks = document.querySelector(".blocks");
 
-// fonction getListesListes qui va charger de recuperer tous les taches
-export function getListesTaches() {
-    taches.forEach(tache => {
+// fonction getListesTaches qui va charger de recuperer tous les taches
 
-        // creation de l'element article
+export function getListesTaches(listes) {
+    blocks.innerHTML = "";
+
+    listes.forEach(tache => {
         const article = document.createElement('article');
         article.classList.add('card');
 
-        // teste sur le status du tache est-ce en cours ou terminer
-        const status = tache.status;
-        const statusLabel = status === true ? "Terminer" : "En cours";
+        const status = tache.status === true ? "Terminer" : "En cours";
 
         article.innerHTML = `
                 <p>******************************************</p>
@@ -49,7 +48,7 @@ export function getListesTaches() {
                 <p>description : ${tache.description}</p>
                 <p>categories : ${tache.categories}</p>
                 <p>priorite : ${tache.priorite}</p>
-                <p>Status : ${statusLabel}</p>
+                <p>Status : ${status}</p>
                 <div class="actions">
                     <button class="btn_action" id="btn__modifier">Modifier</button>
                     <button class="btn_action" id="btn__supprimer">Supprimer</button>
@@ -61,4 +60,152 @@ export function getListesTaches() {
     });
 }
 
+// ***************************************search
 
+export function search(toutesLesTaches) {
+    const recherche = document.querySelector("#search");
+
+    if (recherche) {
+        recherche.addEventListener("input", () => {
+            const valeur = recherche.value.trim().toLowerCase();
+
+            if(valeur !== '') {
+                for(let i = 0; i < valeur.length; i++) {
+                    const resultats = toutesLesTaches.filter((r) =>
+                        r.titre.toLowerCase().includes(valeur)
+                    );
+
+                    if (resultats.length > 0) {
+                        getListesTaches(resultats);
+                    } else {
+                        blocks.innerHTML = `<h2>introuvable</h2>`
+                    }
+                    
+                }
+            } else {
+                getListesTaches(toutesLesTaches)
+            }
+            
+            
+
+        });
+    }
+}
+
+// ************************************les boutons de filtrages
+
+// recuperation des boutons filtres
+const filtre__tous = document.querySelector("#filtre__tous");
+const filtre__encours = document.querySelector("#filtre__enCours");
+
+const filtre__terminer = document.querySelector("#filtre__terminer");
+const filtre__hautePrioris = document.querySelector("#filtre__hautePrioris");
+const filtre__formation = document.querySelector("#filtre__formation");
+
+
+
+
+
+// fonction pour bouton filtre tous 
+export function filtre_tous(listesTaches) 
+{
+
+    if(filtre__tous) {
+        filtre__tous.addEventListener('click', () =>{
+
+            // changement de couleur des boutons
+            changeColor(filtre__tous, [filtre__encours, filtre__terminer, filtre__hautePrioris, filtre__formation]);
+
+            getListesTaches(listesTaches);
+            console.log("filtre pour le bouton tous !");
+        })
+        
+    }
+    
+}
+
+
+// fonction pour bouton filtre tous 
+export function filtre_EnCours(listesTaches)
+{
+
+    if(filtre__encours) {
+        filtre__encours.addEventListener('click', () =>{
+
+
+            // changement de couleur des boutons
+            changeColor(filtre__encours, [filtre__tous, filtre__terminer, filtre__hautePrioris, filtre__formation]);
+
+            const encours = listesTaches.filter( e => !e.status );
+            getListesTaches(encours);
+            
+            console.log("filtre pour le bouton en cours listes des tavhes en cours !");
+        })
+        
+    }
+
+}
+
+// fonction pour bouton filtre tous 
+export function filtre_Terminer(listesTaches)
+{
+
+    if(filtre__terminer) {
+        filtre__terminer.addEventListener('click', () =>{
+
+
+            // changement de couleur des boutons
+            changeColor(filtre__terminer, [filtre__encours, filtre__encours, filtre__hautePrioris, filtre__formation])
+          
+            const encours = listesTaches.filter( e => e.status );
+            getListesTaches(encours);
+            
+            console.log("filtre pour le bouton en cours listes des tavhes teminer !");
+        })
+        
+    }
+
+}
+
+// fonction pour bouton filtre tous 
+export function HautePriorite(listesTaches)
+{
+
+    if(filtre__hautePrioris) {
+        filtre__hautePrioris.addEventListener('click', () =>{
+
+
+            // changement de couleur des boutons
+            changeColor(filtre__hautePrioris, [filtre__encours, filtre__terminer, filtre__terminer, filtre__formation])
+          
+           
+            const encours = listesTaches.filter( e => e.priorite === "Haute" );
+            getListesTaches(encours);
+            
+            console.log("filtre pour le bouton en cours listes des taches haute priorite !");
+        })
+        
+    }
+
+}
+
+// fonction pour bouton filtre tous 
+export function FiltreFormation(listesTaches)
+{
+
+    if(filtre__formation) {
+        filtre__formation.addEventListener('click', () =>{
+
+            // changement de couleur des boutons
+            changeColor(filtre__formation , [filtre__encours, filtre__terminer, filtre__terminer, filtre__hautePrioris])
+          
+           
+            const encours = listesTaches.filter( e => e.categories === "Formation" );
+            getListesTaches(encours);
+            
+            console.log("filtre pour le bouton en cours listes des taches en formation !");
+        })
+        
+    }
+
+}
