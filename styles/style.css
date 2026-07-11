@@ -102,7 +102,7 @@ header #logo {
     border: 1px solid var(--primary-color);
     cursor: pointer;
 }
-#filtre__tous {
+.changeColor {
     background-color: var(--primary-color);
     color: var(--seconde-color);
     font-size: 1rem;
