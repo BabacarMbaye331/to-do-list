@@ -36,8 +36,6 @@ FiltreFormation(taches)
 // appel de la fonction Storage
 Storage(taches)
 
-
-
 // fonction de la bouton de supperssion d'une tache
 const btn_suppression = document.querySelectorAll(".btn_suppression");
 btn_suppression.forEach(b => {
