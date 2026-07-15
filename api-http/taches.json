@@ -7,7 +7,7 @@
         "priorite" : "Haute",
         "dateCreation" : "2026-07-08",
         "dateLimite" : "2026-08-08",
-        "status"  : false
+        "status"  : "En cours"
     },
     
     {
@@ -15,10 +15,10 @@
         "titre" : "Reviser les bases de donnees",
         "description" : "Revoir les requetes SQL pour consolider mon backend",
         "categories" : "Etudes",
-        "priorite" : "moyenne",
+        "priorite" : "Moyenne",
         "dateCreation" : "2026-07-08",
         "dateLimite" : "2026-07-08",
-        "status"  : true
+        "status"  : "Terminer"
     },
     
     {
@@ -26,10 +26,10 @@
         "titre" : "Rechercher une offre de Stage",
         "description" : "Pratiquer mes connaissances et ameliorer soft Skils",
         "categories" : "Travail",
-        "priorite" : "moyenne",
+        "priorite" : "Moyenne",
         "dateCreation" : "2026-02-08",
         "dateLimite" : "2026-02-11",
-        "status"  : false
+        "status"  : "En cours"
     },
     
     {
@@ -40,7 +40,7 @@
         "priorite" : "faible",
         "dateCreation" : "2026-07-18",
         "dateLimite" : "2026-07-18",
-        "status"  : false
+        "status"  : "En cours"
     },
     {
         "id" : 5,
@@ -50,17 +50,17 @@
         "priorite" : "Haute",
         "dateCreation" : "2026-07-08",
         "dateLimite" : "2026-07-13",
-        "status"  : false
+        "status"  : "En cours"
     },
     {
         "id" : 6,
         "titre" : "Acheter des Fruits",
         "description" : "C'est conseiller de manger au moi trois fruis par jour",
         "categories" : "Courses",
-        "priorite" : "moyenne",
+        "priorite" : "Moyenne",
         "dateCreation" : "2026-07-11",
         "dateLimite" : "2026-07-12",
-        "status"  : true
+        "status"  : "Terminer"
     }
     
 ]
