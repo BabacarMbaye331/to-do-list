@@ -9,15 +9,15 @@
     } catch (erreur) {
         console.log( 'une erreur est survenue sur le cote du server ' + erreur)
     }
-     
+      
 }
 
 // ************************Dashboard
 export function calcule_Dasboard(listes_taches) {
     return {
         totale: listes_taches.length,
-        terminer: listes_taches.filter((t) => t.status).length,
-        enCours: listes_taches.filter((v) => !v.status).length,
+        terminer: listes_taches.filter((t) => t.status === "Terminer").length,
+        enCours: listes_taches.filter((v) => v.status === "En cours").length,
         formation: listes_taches.filter((r) => r.categories === "Formation").length
     };
 } 
@@ -32,4 +32,18 @@ export function changeColor(point, [...autres]) {
     autres.forEach((uniq) =>{
         uniq.classList.remove('changeColor')
     })
+}
+
+// function qui va remplir le tache en question de la pagr tache.html
+export function tacheEnQuestion(task, titre, description, categorie, priorite, status)
+{
+
+    // remplissage des elements html avec ls js
+    titre.value = task.titre
+    description.value = task.description
+    categorie.value = task.categories
+    
+   priorite.value = task.priorite
+   status.value = task.status
+
 }
