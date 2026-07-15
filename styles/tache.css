@@ -1,0 +1,95 @@
+:root {
+    --primary-color : #14532D;
+    --seconde-color : #fff;
+    --text-color : #1f1f1f;
+    --border-radius : 6px;
+    --font-size : 1.2rem;
+    --font-size_btn : 1.1rem;
+    --margin : 2rem;
+    --box-shadow : rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+}
+header, main, footer {
+    width: 100%;
+}
+
+.container {
+    width: 85%;
+    margin:  10px auto;
+    padding: 1.5rem 0;
+
+}
+
+/* **********header en tete de la page**************  */
+
+#btn_retoure {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size_btn);
+    background-color: var(--seconde-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+    transition:all .3s ease-in-out;
+
+}
+#btn_retoure:hover {
+    background-color: var(--primary-color);
+    color: var(--seconde-color);
+}
+
+.form_tache{
+    width: 65%;
+    margin: 4rem auto;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+}
+.titreTache {
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+.tache {
+    display: grid;
+    gap: 1rem;
+}
+.champs {
+    display: grid;
+    gap: 0.3rem;
+}
+
+.champs label {
+    font-size: 1.2rem;
+    opacity: .7;
+    letter-spacing: 1px;
+}
+
+.champs input, select {
+    padding: .8rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-color);
+    font-size: 1.03rem;
+}
+#btn_modifier {
+    margin-top: 1.3rem;
+    padding: .6rem 2rem;
+    border: none;
+    color: var(--seconde-color);
+    background-color: var(--primary-color);
+    font-size: 1.1rem;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+}
+#btn_modifier:hover {
+    opacity: .8;
+}
