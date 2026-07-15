@@ -32,7 +32,6 @@ export function Dashboard(listes) {
 const blocks = document.querySelector(".blocks");
 
 // fonction getListesTaches qui va charger de recuperer tous les taches
-
 export function getListesTaches(listes) {
     blocks.innerHTML = "";
 
@@ -40,22 +39,22 @@ export function getListesTaches(listes) {
         const article = document.createElement('article');
         article.classList.add('card');
 
-        const status = tache.status === true ? "Terminer" : "En cours";
-
         article.innerHTML = `
                 <p>******************************************</p>
                 <h3><span class="icon"><i class="fa-solid fa-meteor"></i></span> ${tache.titre}</h3>
                 <p>description : ${tache.description}</p>
                 <p>categories : ${tache.categories}</p>
                 <p>priorite : ${tache.priorite}</p>
-                <p>Status : ${status}</p>
+                <p>Status : ${tache.status}</p>
                 <div class="actions">
-                    <button class="btn_action" id="btn__modifier">Modifier</button>
-                    <button class="btn_action" id="btn__supprimer">Supprimer</button>
-                    <button class="btn_action" id="btn__terminer">Terminer</button>
+                    <a href="../pages/modifierTache.html?tache=${tache.id}">
+                        <button class="btn_action" id="btn__modifier">Modifier</button>
+                    </a>
+                    <button class="btn_action btn_suppression" data-id=${tache.id} id="btn__supprimer">Supprimer</button>
+                    <button class="btn_action btn__terminer" id="btn__terminer">Terminer</button>
                 </div>
                 <p>******************************************</p>
-        `;
+        `;  
         blocks.appendChild(article)
     });
 }
@@ -117,7 +116,6 @@ export function filtre_tous(listesTaches)
             changeColor(filtre__tous, [filtre__encours, filtre__terminer, filtre__hautePrioris, filtre__formation]);
 
             getListesTaches(listesTaches);
-            console.log("filtre pour le bouton tous !");
         })
         
     }
@@ -136,10 +134,9 @@ export function filtre_EnCours(listesTaches)
             // changement de couleur des boutons
             changeColor(filtre__encours, [filtre__tous, filtre__terminer, filtre__hautePrioris, filtre__formation]);
 
-            const encours = listesTaches.filter( e => !e.status );
+            const encours = listesTaches.filter( e => e.status === "En cours");
             getListesTaches(encours);
-            
-            console.log("filtre pour le bouton en cours listes des tavhes en cours !");
+
         })
         
     }
@@ -155,12 +152,11 @@ export function filtre_Terminer(listesTaches)
 
 
             // changement de couleur des boutons
-            changeColor(filtre__terminer, [filtre__encours, filtre__encours, filtre__hautePrioris, filtre__formation])
+            changeColor(filtre__terminer, [filtre__tous, filtre__encours, filtre__hautePrioris, filtre__formation])
           
-            const encours = listesTaches.filter( e => e.status );
+            const encours = listesTaches.filter( e => e.status === "Terminer");
             getListesTaches(encours);
             
-            console.log("filtre pour le bouton en cours listes des tavhes teminer !");
         })
         
     }
@@ -176,13 +172,12 @@ export function HautePriorite(listesTaches)
 
 
             // changement de couleur des boutons
-            changeColor(filtre__hautePrioris, [filtre__encours, filtre__terminer, filtre__terminer, filtre__formation])
+            changeColor(filtre__hautePrioris, [filtre__encours, filtre__tous, filtre__terminer, filtre__formation])
           
            
             const encours = listesTaches.filter( e => e.priorite === "Haute" );
             getListesTaches(encours);
             
-            console.log("filtre pour le bouton en cours listes des taches haute priorite !");
         })
         
     }
@@ -197,13 +192,12 @@ export function FiltreFormation(listesTaches)
         filtre__formation.addEventListener('click', () =>{
 
             // changement de couleur des boutons
-            changeColor(filtre__formation , [filtre__encours, filtre__terminer, filtre__terminer, filtre__hautePrioris])
+            changeColor(filtre__formation , [filtre__encours, filtre__tous, filtre__terminer, filtre__hautePrioris])
           
            
             const encours = listesTaches.filter( e => e.categories === "Formation" );
             getListesTaches(encours);
             
-            console.log("filtre pour le bouton en cours listes des taches en formation !");
         })
         
     }
