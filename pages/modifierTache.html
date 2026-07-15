@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de modification d' une tache</title>
+    <!-- script tache.js -->
+    <script type="module" src="../js/taches.js"></script>
+    <link rel="stylesheet" href="../styles/tache.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- *************************en tete de page -->
+        <header>
+            <a href="index.html" id="btn_retoure">Retoure</a>
+        </header>
+
+        <!-- ****************************main section principqle -->
+        <main>
+
+            <form action="" method="post" class="form_tache">
+
+                <h1 class="titreTache">Formulaire de modification</h1>
+
+                <div class="tache">
+
+                    <!-- champs -->
+                    <div class="champs">
+                        <label for="titre">Titre</label>
+                        <input type="text" id="titre">
+                    </div>
+
+                    <!-- champs description-->
+                    <div class="champs">
+                        <label for="description">Description</label>
+                        <input type="text" id="description">
+                    </div>
+
+                    <!-- champs categorie-->
+                    <div class="champs">
+                        <label for="categorie">Categorie</label>
+                        <input type="text" id="categorie">
+                    </div>
+
+                    <!-- champs priorite-->
+                    <div class="champs">
+                        <label for="priorite">Priorite</label>
+                        <select name="priori" id="priori">
+                            <option value="Haute">Haute</option>
+                            <option value="Moyenne">Moyenne</option>
+                            <option value="Faible">Faible</option>
+                        </select>
+                    </div>
+
+                    <!-- champs status-->
+                    <div class="champs">
+                        <label for="status">Status</label>
+                        <select name="status" id="status">
+                            <option value="Terminer">Terminer</option>
+                            <option value="En cours">En cours</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="btn_modifier" type="submit">Enregistrer la modification</button>
+
+            </form>
+
+        </main>
+
+        <!-- *************************foter pied de la page -->
+        <footer>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
