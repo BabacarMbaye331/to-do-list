@@ -1,12 +1,12 @@
 :root {
-    --primary-color : #14532D;
-    --seconde-color : #fff;
-    --text-color : #1f1f1f;
-    --border-radius : 6px;
-    --font-size : 1.2rem;
-    --font-size_btn : 1.1rem;
-    --margin : 2rem;
-    --box-shadow : rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    --primary-color: #14532D;
+    --seconde-color: #fff;
+    --text-color: #1f1f1f;
+    --border-radius: 6px;
+    --font-size: 1.2rem;
+    --font-size_btn: 1.06rem;
+    --margin: 2rem;
+    --box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 * {
@@ -14,16 +14,20 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: sans-serif;
 }
-header, main, footer {
+
+header,
+main,
+footer {
     width: 100%;
 }
 
 .container {
     width: 85%;
-    margin:  10px auto;
+    margin: 10px auto;
 
 }
 
@@ -34,12 +38,14 @@ header #logo {
     font-weight: bold;
     font-size: 2.5rem;
 }
+
 /* section dashboard */
 .dashboard {
     margin: var(--margin) 0;
     box-shadow: var(--box-shadow);
     padding: 1rem .5rem;
 }
+
 .dashboard h2 {
     margin-bottom: .5rem;
 }
@@ -47,6 +53,7 @@ header #logo {
 .donnees_dashboard {
     line-height: 2;
 }
+
 .donnees_dashboard p strong {
     opacity: .7;
 }
@@ -55,6 +62,7 @@ header #logo {
 .section_principle {
     width: 100%;
 }
+
 /* section de recherche et du bouton d'ajout de taches */
 #section__search {
     display: grid;
@@ -62,6 +70,7 @@ header #logo {
     gap: 1rem;
     align-items: center;
 }
+
 #search {
     padding: 10px;
     font-size: var(--font-size_btn);
@@ -70,9 +79,11 @@ header #logo {
     border-radius: var(--border-radius);
     transition: all .3s ease-in-out;
 }
+
 #search:focus {
     border: 3px solid var(--primary-color);
 }
+
 #btn_ajoutTache {
     padding: 10px;
     border: none;
@@ -84,24 +95,142 @@ header #logo {
     border-radius: var(--border-radius);
     transition: all .2s ease-in;
 }
+
 #btn_ajoutTache:hover {
     opacity: .8;
 }
+
+
+/* *****************************************formulaire d' ajout de tache */
+
+/* cacher le formulaire d'ajout de nouvele tache */
+.caheFormTache {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+}
+.ajouterTache {
+    position: absolute;
+    z-index: 1000;
+    width: 55%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--seconde-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+}
+
+.dropPlan {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.4);
+    backdrop-filter: blur(5px);
+}
+
+.close {
+    display: block;
+    text-align: end;
+
+}
+.icon_close {
+    font-size: 1.3rem;
+    color: red;
+    cursor: pointer;
+    font-weight: 900;
+    transition: all .3s ease-in-out;
+}
+.icon_close:hover {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+#ajout_Tache h1 {
+    font-size: 2rem;
+    margin: 1rem 0 2rem;
+    color: var(--primary-color);
+}
+
+.formContent {
+    display: grid;
+    gap: 2rem;
+}
+.group {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+.champs {
+    display: grid;
+    gap: 1rem;
+}
+label {
+    font-size: 1.2rem;
+    opacity: .7;
+    letter-spacing: 1px;
+}
+input, select {
+    padding: .6rem 1rem;
+    font-size: var(--font-size);
+    border: 1px solid var(--primary-color);
+    outline: none;
+    border-radius: var(--border-radius);
+    transition: all .3s ease;
+}
+
+input:focus {
+    border: 2px solid var(--primary-color);
+}
+
+.btn_ajoutsTaches {
+    display: flex;
+    gap: 1rem;
+
+}
+#validAjout, #annulTache {
+    border: none;
+    padding: .5rem 2rem;
+    background-color: transparent;
+    letter-spacing: .5px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size_btn);
+}
+#validAjout {
+    background-color: var(--primary-color);
+    color: var(--seconde-color);
+}
+
+#annulTache {
+    background-color: chocolate;
+    color: var(--seconde-color);
+}
+
 /* section filtrage */
 .section__filtrage h2 {
     margin-bottom: .5rem;
 }
+
 .btns__filtre {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
 }
+
 .btn {
     padding: 6px;
     background-color: var(--seconde-color);
     border: 1px solid var(--primary-color);
     cursor: pointer;
 }
+
 .changeColor {
     background-color: var(--primary-color);
     color: var(--seconde-color);
@@ -115,14 +244,17 @@ header #logo {
     opacity: .8;
     line-height: 1.5;
 }
+
 h2 {
     font-size: 2rem;
 }
+
 .blocks {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
 }
+
 .card {
     box-shadow: var(--box-shadow);
     padding: 1rem;
@@ -131,23 +263,28 @@ h2 {
     transition: all .3s ease-in-out;
     border-radius: var(--border-radius);
 }
+
 .card:hover {
     transform: scale(1.02);
     background-color: var(--primary-color);
     color: var(--seconde-color);
 }
+
 .card:hover .icon {
     color: var(--seconde-color);
 }
+
 .card .icon {
     color: var(--primary-color);
 }
+
 .actions {
     display: flex;
     justify-content: start;
     gap: 1rem;
     margin-top: .5rem;
 }
+
 .btn_action {
     padding: 3px 8px;
     /* background-color: var(--seconde-color); */
@@ -155,15 +292,19 @@ h2 {
     cursor: pointer;
     font-size: .9rem;
 }
+
 #btn__supprimer {
     color: red;
 }
+
 #btn__terminer {
     color: var(--primary-color);
 }
+
 .section_principle .section__filtrage {
     margin: var(--margin) 0;
 }
+
 /* **********footer pied de page**************  */
 .section__footer {
     margin-top: var(--margin);
@@ -173,10 +314,12 @@ h2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+
 .desc_footer_primary {
     line-height: 1.3;
     font-size: 1.05rem;
 }
+
 .desc_footer_secondqry {
     text-align: end;
 }
