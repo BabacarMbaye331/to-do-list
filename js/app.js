@@ -1,6 +1,7 @@
 // importation des differentsfonctions depuis dom.js
 import { Storage } from "./storage.js";
-import { getListesTaches, Dashboard, search, filtre_tous, filtre_EnCours, filtre_Terminer, HautePriorite, FiltreFormation } from "./dom.js";
+import { getListesTaches, Dashboard, search, filtre_tous, filtre_EnCours, 
+    filtre_Terminer, HautePriorite, FiltreFormation, on_FormAjoutTache, close_FormAjoutTache, ajouterTache } from "./dom.js";
 import { listesTaches } from "./utile.js";
 
 // listes des taches
@@ -49,6 +50,15 @@ btn_suppression.forEach(b => {
 
         e.target.closest('.card').remove()
 
-        console.log(id_v)
     })
 })
+
+// affichage du formulaire d'ajout de nouvelle tache
+on_FormAjoutTache();
+
+// fermiture du formulaire d'ajout tache
+close_FormAjoutTache()
+
+
+// appel de fonction ajouterTache
+ajouterTache(taches)
