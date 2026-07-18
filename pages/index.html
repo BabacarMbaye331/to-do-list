@@ -1,89 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestionnaire de taches</title>
-    <!-- lien de link du css -->
-    <link rel="stylesheet" href="../styles/style.css">
-    <!-- lien du script du js -->
-    <script type="module" src="../js/app.js" defer></script>
-    <!-- lien fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Gestionnaire de taches</title>
+   <!-- lien de link du css -->
+   <link rel="stylesheet" href="../styles/style.css">
+   <!-- lien du script du js -->
+   <script type="module" src="../js/app.js" defer></script>
+   <!-- lien fontawesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    <div class="container">
+   <div class="container">
 
-        <!-- **********header en tete de la page************** -->
-        <header>
+      <!-- **********header en tete de la page************** -->
+      <header>
 
-            <p><a id="logo">Gestionnaire de taches</a></p>
-            <div class="dashboard">
-                <h3>Dashboard</h3>
-                <div class="donnees_dashboard">
+         <p><a id="logo">Gestionnaire de taches</a></p>
+         <div class="dashboard">
+            <h3>Dashboard</h3>
+            <div class="donnees_dashboard">
 
-                    <!-- remplissage dynamique depuis js -->
-                    
-                </div>
+               <!-- remplissage dynamique depuis js -->
+
             </div>
+         </div>
 
-        </header>
+      </header>
 
-        <!-- ***********main partie principale*********** -->
-        <main>
-            
-            <section class="section_principle">
+      <!-- ***********main partie principale*********** -->
+      <main>
 
-                <!-- secttion de recherche -->
-                <section id="section__search">
-                    <input type="text" id="search" placeholder="Rechercher une tache ...">
-                    <button id="btn_ajoutTache">Ajouter une tache</button>
-                </section>
+         <section class="section_principle">
 
-                <!-- section filtrage -->
-                <section class="section__filtrage">
-                    <h2>Filtrer</h2>
-                    <div class="btns__filtre">
-                        <button class="btn changeColor" id="filtre__tous">Toutes</button>
-                        <button class="btn " id="filtre__enCours">En cours</button>
-                        <button class="btn " id="filtre__terminer">Terminer</button>
-                        <button class="btn " id="filtre__hautePrioris">Haute priorites</button>
-                        <button class="btn " id="filtre__formation">Formation</button>
-                    </div>  
-                </section>
-
-                <!-- listes des taches -->
-                <section id="section__listeTaches">
-                    <h2>Listes des taches</h2>
-                    <p class="desc_listes_taches">
-                        Organiser vos taches en toute simplicite et garder le controle sur vos objectifs. Grace a une interface intuitive et facile a utiliser, 
-                        planifier vos activites, definisser vos proprietes et suivez votre progession en temps reel. Que ce soit pour vos projets personnels,
-                         vos etudes ou vore travail. Notre application vous aide a rester organiser, productif et concentrer sur ce qui compte le plus.
-                    </p>
-                    <section class="blocks">
-
-                        <!-- insertion des articles dynamiquement avec js -->
-
-                    </section>
-                </section>
-
+            <!-- secttion de recherche -->
+            <section id="section__search">
+               <input type="text" id="search" placeholder="Rechercher une tache ...">
+               <button id="btn_ajoutTache" >Ajouter une tache</button>
             </section>
 
-        </main>
+            <!-- section du formulaire d ' ajout d ' un tache -->
 
-        <!-- ***********************footer pied de page************* -->
-        <footer>
-            
-                <div class="section__footer">
-                    <p class="desc_footer_primary">Merci d ' avoir visiter notre application.
-                    Notre mossion est de vous aider a mieux organiser votre quotidien grace a une
-                    suggestion simple, rapide et efficace de vos taches.</p>
-                    <p class="desc_footer_secondqry">@2026 Task Manager - Tous droits reserves.</p>
-                </div>
-            
-        </footer>
+            <!-- class dropPlan ajout par le js qui [ermet de rendre l'arriere plan floue] -->
+            <div class="drop"></div>
 
-    </div>
+               <!-- class ajouterTache ajout par le js pour definir le -->
+            <section id="jouterTache" class="caheFormTache">
+
+               <form action="" method="" id="ajout_Tache" class="ajout_Tache" role="inscription">
+
+                  <span class="close"><i class="fa-solid fa-xmark icon_close"></i></span>
+                  <h1>Ajouter une tache</h1>
+
+                  <div class="formContent" role="group" >
+
+                     <!-- regroupement de champs titre et description -->
+                     <div class="group">
+                        <!-- champs_active -->
+                        <div class="champs">
+                           <label for="titre">Titre</label>
+                           <input type="text" id="titre" placeholder="Titre du tache ajouter">
+                        </div>
+                        <!-- champs_active -->
+                        <div class="champs">
+                           <label for="description">Description</label>
+                           <input type="text" id="description" placeholder="description du tache">
+                        </div>
+                     </div>
+                     <!-- champs group pour les categorie et priorite -->
+                     <div class="group">
+                        <!-- champs_active -->
+                        <div class="champs">
+                           <label for="titre">Categorie</label>
+                           <select name="categorie" id="categorie">
+                              <option value="Formation">Formation</option>
+                              <option value="Etudes">Etudes</option>
+                              <option value="Travail">Travail</option>
+                              <option value="Maison">Maison</option>
+                              <option value="Courses">Courses</option>
+                           </select>
+                        </div>
+                        <!-- champs_active -->
+                        <div class="champs">
+                           <label for="priorite">Priorite</label>
+                           <select name="priorite" id="priorite">
+                              <option value="Haute">Haute</option>
+                              <option value="Moyenne">Moyenne</option>
+                              <option value="Faible">Faible</option>
+                           </select>
+                        </div>
+                     </div>
+
+                     <!-- champs pour les dates -->
+                     <div class="group">
+                        <!-- champs_active -->
+                        <div class="champs">
+                           <label for="dateCreation">Date de creation</label>
+                           <input type="date" id="dateCreation">
+                        </div>
+                        <!-- champs_active -->
+                        <div class="champs">
+                           <label for="dateLimite">Date de limite</label>
+                           <input type="date" id="dateLimite">
+                        </div>
+                     </div>
+
+                     <!-- champs de status -->
+                        <!-- champs_active -->
+                     <div class="champs">
+                        <label for="status">Status</label>
+                        <select name="status" id="status">
+                           <option value="Formation">Formation</option>
+                           <option value="En cours">En cours</option>
+                           <option value="Terminer">Terminer</option>
+                        </select>
+                     </div>
+
+                     <div class="btn_ajoutsTaches">
+                        <button id="validAjout" type="submit">Ajouter</button>
+                        <button id="annulTache" type="button">Annuller</button>
+                     </div>
+
+                  </div>
+               </form>
+            </section>
+
+            <!-- section filtrage -->
+            <section class="section__filtrage">
+               <h2>Filtrer</h2>
+               <div class="btns__filtre">
+                  <button class="btn changeColor" id="filtre__tous">Toutes</button>
+                  <button class="btn " id="filtre__enCours">En cours</button>
+                  <button class="btn " id="filtre__terminer">Terminer</button>
+                  <button class="btn " id="filtre__hautePrioris">Haute priorites</button>
+                  <button class="btn " id="filtre__formation">Formation</button>
+               </div>
+            </section>
+
+            <!-- listes des taches -->
+            <section id="section__listeTaches">
+               <h2>Listes des taches</h2>
+               <p class="desc_listes_taches">
+                  Organiser vos taches en toute simplicite et garder le controle sur vos objectifs. Grace a une
+                  interface intuitive et facile a utiliser,
+                  planifier vos activites, definisser vos proprietes et suivez votre progession en temps reel. Que ce
+                  soit pour vos projets personnels,
+                  vos etudes ou vore travail. Notre application vous aide a rester organiser, productif et concentrer
+                  sur ce qui compte le plus.
+               </p>
+               <section class="blocks">
+
+                  <!-- insertion des articles dynamiquement avec js -->
+
+               </section>
+            </section>
+
+         </section>
+
+      </main>
+
+      <!-- ***********************footer pied de page************* -->
+      <footer>
+
+         <div class="section__footer">
+            <p class="desc_footer_primary">Merci d ' avoir visiter notre application.
+               Notre mossion est de vous aider a mieux organiser votre quotidien grace a une
+               suggestion simple, rapide et efficace de vos taches.</p>
+            <p class="desc_footer_secondqry">@2026 Task Manager - Tous droits reserves.</p>
+         </div>
+
+      </footer>
+
+   </div>
 
 </body>
+
 </html>
