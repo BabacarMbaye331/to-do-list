@@ -16,8 +16,8 @@ export function Dashboard(listes) {
         enCours: tache_enCours,
         formation: tache_enFormation
     } = calcule_Dasboard(listes);
-    
-    donnees_dashboard.innerHTML =`
+
+    donnees_dashboard.innerHTML = `
         <p><strong>Totale Taches : </strong> <span class="totaleTachhes">${totale_Taches}</span></p>
         <p><strong> Taches Terminer : </strong> <span class="tacheTerminer">${tache_Terminer}</span></p>
         <p><strong> Taches en cours : </strong> <span class="tacheEnCours">${tache_enCours}</span></p>
@@ -54,7 +54,7 @@ export function getListesTaches(listes) {
                     <button class="btn_action btn__terminer" id="btn__terminer">Terminer</button>
                 </div>
                 <p>******************************************</p>
-        `;  
+        `;
         blocks.appendChild(article)
     });
 }
@@ -68,8 +68,8 @@ export function search(toutesLesTaches) {
         recherche.addEventListener("input", () => {
             const valeur = recherche.value.trim().toLowerCase();
 
-            if(valeur !== '') {
-                for(let i = 0; i < valeur.length; i++) {
+            if (valeur !== '') {
+                for (let i = 0; i < valeur.length; i++) {
                     const resultats = toutesLesTaches.filter((r) =>
                         r.titre.toLowerCase().includes(valeur)
                     );
@@ -79,13 +79,13 @@ export function search(toutesLesTaches) {
                     } else {
                         blocks.innerHTML = `<h2>introuvable</h2>`
                     }
-                    
+
                 }
             } else {
                 getListesTaches(toutesLesTaches)
             }
-            
-            
+
+
 
         });
     }
@@ -106,100 +106,180 @@ const filtre__formation = document.querySelector("#filtre__formation");
 
 
 // fonction pour bouton filtre tous 
-export function filtre_tous(listesTaches) 
-{
+export function filtre_tous(listesTaches) {
 
-    if(filtre__tous) {
-        filtre__tous.addEventListener('click', () =>{
+    if (filtre__tous) {
+        filtre__tous.addEventListener('click', () => {
 
             // changement de couleur des boutons
             changeColor(filtre__tous, [filtre__encours, filtre__terminer, filtre__hautePrioris, filtre__formation]);
 
             getListesTaches(listesTaches);
         })
-        
+
     }
-    
+
 }
 
 
 // fonction pour bouton filtre tous 
-export function filtre_EnCours(listesTaches)
-{
+export function filtre_EnCours(listesTaches) {
 
-    if(filtre__encours) {
-        filtre__encours.addEventListener('click', () =>{
+    if (filtre__encours) {
+        filtre__encours.addEventListener('click', () => {
 
 
             // changement de couleur des boutons
             changeColor(filtre__encours, [filtre__tous, filtre__terminer, filtre__hautePrioris, filtre__formation]);
 
-            const encours = listesTaches.filter( e => e.status === "En cours");
+            const encours = listesTaches.filter(e => e.status === "En cours");
             getListesTaches(encours);
 
         })
-        
+
     }
 
 }
 
 // fonction pour bouton filtre tous 
-export function filtre_Terminer(listesTaches)
-{
+export function filtre_Terminer(listesTaches) {
 
-    if(filtre__terminer) {
-        filtre__terminer.addEventListener('click', () =>{
+    if (filtre__terminer) {
+        filtre__terminer.addEventListener('click', () => {
 
 
             // changement de couleur des boutons
             changeColor(filtre__terminer, [filtre__tous, filtre__encours, filtre__hautePrioris, filtre__formation])
-          
-            const encours = listesTaches.filter( e => e.status === "Terminer");
+
+            const encours = listesTaches.filter(e => e.status === "Terminer");
             getListesTaches(encours);
-            
+
         })
-        
+
     }
 
 }
 
 // fonction pour bouton filtre tous 
-export function HautePriorite(listesTaches)
-{
+export function HautePriorite(listesTaches) {
 
-    if(filtre__hautePrioris) {
-        filtre__hautePrioris.addEventListener('click', () =>{
+    if (filtre__hautePrioris) {
+        filtre__hautePrioris.addEventListener('click', () => {
 
 
             // changement de couleur des boutons
             changeColor(filtre__hautePrioris, [filtre__encours, filtre__tous, filtre__terminer, filtre__formation])
-          
-           
-            const encours = listesTaches.filter( e => e.priorite === "Haute" );
+
+
+            const encours = listesTaches.filter(e => e.priorite === "Haute");
             getListesTaches(encours);
-            
+
         })
-        
+
     }
 
 }
 
 // fonction pour bouton filtre tous 
-export function FiltreFormation(listesTaches)
-{
+export function FiltreFormation(listesTaches) {
 
-    if(filtre__formation) {
-        filtre__formation.addEventListener('click', () =>{
+    if (filtre__formation) {
+        filtre__formation.addEventListener('click', () => {
 
             // changement de couleur des boutons
-            changeColor(filtre__formation , [filtre__encours, filtre__tous, filtre__terminer, filtre__hautePrioris])
-          
-           
-            const encours = listesTaches.filter( e => e.categories === "Formation" );
+            changeColor(filtre__formation, [filtre__encours, filtre__tous, filtre__terminer, filtre__hautePrioris])
+
+
+            const encours = listesTaches.filter(e => e.categories === "Formation");
             getListesTaches(encours);
-            
+
         })
-        
+
     }
 
+}
+
+// fonction qui declanche affiche le formulaire d'ajout de nouvelle tahe
+export function on_FormAjoutTache() {
+    // bouton qui affiche le formulaire
+    const btn_ajoutTache = document.querySelector('#btn_ajoutTache');
+
+    // recuperation des autres elements du html
+    const drop = document.querySelector('.drop');
+    const ajoutTache = document.querySelector('#jouterTache')
+
+    if (btn_ajoutTache) {
+        btn_ajoutTache.addEventListener('click', () => {
+            drop.classList.add('dropPlan')
+            ajoutTache.classList.add('ajouterTache')
+            ajoutTache.classList.remove('caheFormTache')
+        })
+    }
+}
+
+export function close_FormAjoutTache() {
+    // bouton qui affiche le formulaire
+    const icon_close = document.querySelector('.icon_close');
+    const annulTache = document.querySelector('#annulTache');
+
+    // recuperation des autres elements du html
+    const drop = document.querySelector('.drop');
+    const ajoutTache = document.querySelector('#jouterTache')
+
+    // icon rouge du fermuler pour fermer le popop du firmulaire
+    if (icon_close) {
+        icon_close.addEventListener('click', () => {
+            drop.classList.remove('dropPlan')
+            ajoutTache.classList.remove('ajouterTache')
+            ajoutTache.classList.add('caheFormTache')
+        })
+    }
+
+    // bouton annuler du formulaire pour annuler le formulaire
+    if (annulTache) {
+        annulTache.addEventListener('click', () => {
+            drop.classList.remove('dropPlan')
+            ajoutTache.classList.remove('ajouterTache')
+            ajoutTache.classList.add('caheFormTache')
+        })
+    }
+}
+
+// fonction ajout de tache tache
+export function ajouterTache(listes) {
+
+    // recuperation des elements html
+    const formulaireAjout = document.querySelector("#ajout_Tache");
+    const titreTacheAjouter = document.querySelector("#titre");
+    const descriptionTacheAjouter = document.querySelector("#description");
+    const categorieTacheAjouter = document.querySelector("#categorie");
+    const prioriteTacheAjouter = document.querySelector("#priorite");
+    const dateCreationTacheAjouter = document.querySelector("#dateCreation");
+    const dateLimiteTacheAjouter = document.querySelector("#dateLimite");
+    const statusTacheAjouter = document.querySelector("#status");
+
+    if (formulaireAjout) {
+        formulaireAjout.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const nouveauId = listes.length > 0 ? Math.max(...listes.map(t => t.id)) + 1 : 1;
+            
+            const registreTache = {
+                id: nouveauId,
+                titre: titreTacheAjouter.value,
+                description: descriptionTacheAjouter.value,
+                categories: categorieTacheAjouter.value,
+                priorite: prioriteTacheAjouter.value,
+                dateCreation: dateCreationTacheAjouter.value,
+                dateLimite: dateLimiteTacheAjouter.value,
+                status: statusTacheAjouter.value
+            };
+
+            listes.push(registreTache);
+
+            localStorage.setItem('listes', JSON.stringify(listes));
+
+            location.href = "../pages/index.html";
+        });
+    }
 }
